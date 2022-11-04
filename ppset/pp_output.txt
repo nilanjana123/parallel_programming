@@ -1,0 +1,168 @@
+Testcase 1 : 
+***************
+edge per process 1
+Values to scatter from process 0: 0-1, 2-0, 3-4,
+
+Process 0 received value = 
+Process 1 received value =  {2-0},
+ {0-1},
+
+Process 2 received value =  {3-4},
+
+updated parent array by process 1 -> 2, 1, 2, 3, 4, 
+updated parent array by process 2 -> 0, 1, 2, 4, 4, 
+updated parent array by process 0 -> 1, 1, 2, 3, 4, 
+
+Final parent array in root(node) pattern : 2(0), 2(1), [R2(2)], 4(3), [R4(4)], 
+
+No of connected components: 2
+____________________________________________________________________________________________________
+
+
+Testcase 2 : 
+***************
+edge per process 1
+Values to scatter from process 0: 0-1, 2-3, 3-4,
+
+Process 0 received value = 
+Process 1 received value =  {2-3},
+
+Process 2 received value =  {3-4},
+ {0-1},
+
+updated parent array by process 1 -> 0, 1, 3, 3, 4, 
+updated parent array by process 2 -> 0, 1, 2, 4, 4, 
+updated parent array by process 0 -> 1, 1, 2, 3, 4, 
+
+Final parent array in root(node) pattern : 1(0), [R1(1)], 4(2), 4(3), [R4(4)], 
+
+No of connected components: 2
+____________________________________________________________________________________________________
+
+
+Testcase 3 : 
+***************
+edge per process 2
+Values to scatter from process 0: 0-1, 2-3, 3-4, 4-1, -1--1, -1--1,
+
+Process 0 received value = 
+Process 1 received value =  {3-4},
+Process 2 received value =  {-1--1}, {-1--1},
+ {4-1},
+ {0-1}, {2-3},
+
+updated parent array by process 1 -> 0, 4, 2, 4, 4, 
+updated parent array by process 0 -> 1, 1, 3, 3, 4, 
+updated parent array by process 2 -> 0, 1, 2, 3, 4, 
+
+Final parent array in root(node) pattern : 4(0), 4(1), 4(2), 4(3), [R4(4)], 
+
+No of connected components: 1
+____________________________________________________________________________________________________
+
+
+Testcase 4 : 
+***************
+edge per process 2
+Values to scatter from process 0: 0-1, 2-3, 3-4, 5-6, 6-8, 5-7,
+
+Process 0 received value = 
+Process 1 received value =  {3-4}, {5-6},
+
+Process 2 received value =  {6-8}, {5-7},
+
+updated parent array by process 1 ->  {0-1}, {2-3},
+0, 1, 2, 4, 4, 6, 6, 7, 8, 9, 
+updated parent array by process 2 -> 0, 1, 2, 3, 4, 7, 8, 7, 8, 9, 
+updated parent array by process 0 -> 1, 1, 3, 3, 4, 5, 6, 7, 8, 9, 
+
+Final parent array in root(node) pattern : 1(0), [R1(1)], 4(2), 4(3), [R4(4)], 8(5), 8(6), 8(7), [R8(8)], [R9(9)], 
+
+No of connected components: 4
+____________________________________________________________________________________________________
+
+
+Testcase 5 : 
+***************
+edge per process 3
+Values to scatter from process 0: 0-1, 6-4, 4-9, 2-3, 3-4, 5-6, 6-8, 5-7, -1--1,
+
+Process 0 received value =  {0-1}, {6-4}, {4-9},
+
+Process 2 received value =  {6-8}, {5-7}, {-1--1},
+
+Process 1 received value =  {2-3}, {3-4}, {5-6},
+
+updated parent array by process 1 -> 0, 1, 4, 4, 4, 6, 6, 7, 8, 9, 
+updated parent array by process 2 -> 0, 1, 2, 3, 4, 7, 8, 7, 8, 9, 
+updated parent array by process 0 -> 1, 1, 2, 3, 9, 5, 9, 7, 8, 9, 
+
+Final parent array in root(node) pattern : 1(0), [R1(1)], 9(2), 9(3), 9(4), 9(5), 9(6), 9(7), 9(8), [R9(9)], 
+
+No of connected components: 2
+____________________________________________________________________________________________________
+
+
+Testcase 6 : 
+***************
+edge per process 3
+Values to scatter from process 0: 0-1, 2-3, 1-4, 3-4, 5-6, 6-8, 5-7, 8-9, -1--1,
+
+Process 0 received value =  {0-1}, {2-3},
+Process 1 received value =  {3-4}, {5-6},
+Process 2 received value =  {5-7}, {8-9}, {1-4},
+ {6-8},
+ {-1--1},
+
+updated parent array by process 2 -> 0, 1, 2, 3, 4, 7, 6, 7, 9, 9, 
+updated parent array by process 0 -> 
+updated parent array by process 1 -> 0, 1, 2, 4, 4, 8, 8, 7, 8, 9, 4, 4, 3, 3, 4, 5, 6, 7, 8, 9, 
+
+Final parent array in root(node) pattern : 4(0), 4(1), 4(2), 4(3), [R4(4)], 9(5), 9(6), 9(7), 9(8), [R9(9)], 
+
+No of connected components: 2
+____________________________________________________________________________________________________
+
+
+Testcase 7 : 
+***************
+edge per process 3
+Values to scatter from process 0: 0-9, 1-9, 4-7, 6-4, 1-2, 8-9, 3-0, 5-8, 8-6,
+
+Process 0 received value = 
+Process 1 received value = 
+Process 2 received value =  {3-0}, {0-9}, {1-9}, {4-7},
+ {6-4}, {1-2}, {8-9},
+ {5-8}, {8-6},
+
+updated parent array by process 2 -> 3, 1, 2, 3, 4, 8, 8, 7, 8, 9, 
+updated parent array by process 1 -> 0, 2, 2, 3, 6, 5, 6, 7, 9, 9, 
+updated parent array by process 0 -> 9, 9, 2, 3, 7, 5, 6, 7, 8, 9, 
+
+Final parent array in root(node) pattern : 9(0), 9(1), 9(2), 9(3), 9(4), 9(5), 9(6), 9(7), 9(8), [R9(9)], 
+
+No of connected components: 1
+____________________________________________________________________________________________________
+
+
+Testcase 8 : 
+***************
+edge per process 2
+Values to scatter from process 0: 0-9, 1-9, 1-2, 3-0, 5-8, 8-6,
+
+Process 0 received value =  {0-9}, {1-9},
+
+Process 1 received value =  {1-2}, {3-0},
+
+Process 2 received value =  {5-8}, {8-6},
+
+updated parent array by process 1 -> 3, 2, 
+updated parent array by process 2 -> 0, 1, 2, 3, 4, 8, 8, 2, 3, 4, 5, 6, 7, 8, 9, 7, 8, 9, 
+updated parent array by process 0 -> 9, 9, 2, 3, 4, 5, 6, 7, 8, 9, 
+
+Final parent array in root(node) pattern : 9(0), 9(1), 9(2), 9(3), [R4(4)], 8(5), 8(6), [R7(7)], [R8(8)], [R9(9)], 
+
+No of connected components: 4
+____________________________________________________________________________________________________
+
+
